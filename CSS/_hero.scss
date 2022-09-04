@@ -1,0 +1,74 @@
+@use 'variables' as v;
+@use 'utili' as u;
+@use 'breakpoints' as b;
+
+header {
+    background-image: url('../images/bg-pattern-intro-mobile.svg'), linear-gradient(to bottom, v.$Very-light-red-i-b, v.$Light-red-i-b);
+    background-position: center;
+    border-bottom-left-radius: 100px;
+    padding-block: 50px 100px;
+
+    .hero {
+        margin: 100px 0;
+        text-align: center;
+        color: v.$White;
+
+        h1 {
+            font-size: 1.9rem;
+            margin-bottom: 30px;
+            font-weight: v.$font-w-2_400;
+        }
+
+        p{
+            margin-bottom: 50px;
+        }
+
+        &__cta_primary {
+            @include u.button;
+            margin-inline-end: 5px;
+        }
+
+        &__cta_secondary {
+            @include u.button;
+            background-color: transparent;
+            border-color: v.$Grayish-blue;
+            color: v.$White;
+            margin-inline-start: 5px;
+
+            &:hover {
+                background-color: v.$White;
+                color: v.$Light-red;
+                border-color: v.$White;
+            }
+        }
+    }
+}
+
+//Media Queries
+
+@include b.md {
+    header {
+    
+        .hero {
+    
+            h1 {
+                font-size: 2.1rem;
+            }
+    
+           
+        }
+    }
+}
+
+@include b.lg {
+    header {
+        background-image: url('../images/bg-pattern-intro-desktop.svg'), linear-gradient(to bottom, v.$Very-light-red-i-b, v.$Light-red-i-b);
+        background-repeat: no-repeat;
+    
+        .hero {    
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    }
+}

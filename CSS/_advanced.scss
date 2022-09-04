@@ -1,0 +1,55 @@
+@use 'variables' as v;
+@use 'utili' as u;
+@use 'breakpoints' as b;
+
+.advanced {
+    padding-block: 100px 100px;
+    text-align: center;
+
+    &__wrapper{
+        @include u.flex;
+        flex-direction: column;
+
+        img {
+            width: 100%;
+        }
+
+        h3 {
+            margin-block: 50px 20px;
+            font-size: 1.6rem;
+            color: v.$Very-dark-blue;
+            font-weight: v.$font-w-2_500;
+        }
+    }
+}
+
+
+// Media Queries
+@include b.lg {
+    .advanced {
+        text-align: left;
+    
+        &__image {
+            flex-basis: 50%;
+            margin-left: -300px;
+        }
+
+        &__text_box{
+            flex-basis: 50%;
+        }
+
+        &__wrapper{
+            @include u.flex;
+            flex-direction: row;
+            gap: 100px;
+
+            img {
+                width: 150%;
+            }
+
+            h3 {
+                font-size: 1.9rem;
+            }
+        }
+    }
+}

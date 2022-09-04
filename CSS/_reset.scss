@@ -1,0 +1,68 @@
+@use "variables" as v;
+
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  font: {
+    size: 1rem;
+    family: v.$font-fam-1;
+    weight: v.$font-w-1_600;
+  }
+}
+
+p {
+  font: {
+    size: 1.1rem;
+    family: v.$font-fam-1;
+    weight: v.$font-w-1_300;
+  }
+  line-height: 1.5;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: v.$font-fam-2;
+}
+
+button {
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.attribution {
+  padding-block: 100px 50px;
+
+  font: {
+        size: 11px;
+        family: v.$font-fam-1;
+        weight: v.$font-w-1_300;
+    }
+    text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+    font-size: 11px;
+  }
+}

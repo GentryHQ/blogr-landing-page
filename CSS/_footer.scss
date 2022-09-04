@@ -1,0 +1,66 @@
+@use 'variables' as v;
+@use 'utili' as u;
+@use 'breakpoints' as b;
+
+footer {
+    background-color:  v.$Very-dark-black-blue;
+    border-top-right-radius: 100px;
+    padding-block: 100px 0;
+    text-align: center;
+    color: v.$White;
+
+    .footer__wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+    
+        h4{
+            margin-block-end: 20px;
+            font-size: 1.1rem;
+            font-weight: v.$font-w-2_400;
+        }
+
+        li{
+            padding-block: 5px;
+        }
+
+        a {
+            color: v.$Grayish-blue;
+            font-weight: v.$font-w-1_300;
+
+            &:hover {
+                @include u.hover(v.$Grayish-blue);
+            }
+        }
+    }
+}
+
+
+// Media Query
+@include b.md {
+    footer {
+        text-align: left;
+
+        .footer__1 {
+            grid-column: 1/4;
+        }
+    
+        .footer__wrapper {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
+
+
+@include b.lg {
+    footer {
+
+        .footer__1 {
+            grid-column: 1/1;
+        }
+    
+        .footer__wrapper {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+}

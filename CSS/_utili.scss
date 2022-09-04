@@ -1,0 +1,32 @@
+@use 'variables' as v;
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin button {
+    background-color: v.$White;
+    padding: 10px 15px;
+    color: v.$Light-red;
+    border-radius: 50px;
+    display: inline-block;
+    border: 2px solid v.$White;
+
+    &:hover {
+        color: v.$White;
+        background-color: v.$Very-light-red-i-b;
+        border: 2px solid v.$Very-light-red-i-b;
+    }
+}
+
+@mixin hover($val) {
+    border-bottom: 1px solid $val;
+}

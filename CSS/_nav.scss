@@ -1,0 +1,263 @@
+@use "utili" as u;
+@use "variables" as v;
+@use "breakpoints" as b;
+
+.nav__header__wrapper {
+  @include u.flex;
+  position: relative;
+
+  .links {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: v.$White;
+    border-radius: 5px;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    padding-block: 50px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 2px 5px 26px rgba(0, 0, 0, 0.2);
+    display: none;
+
+    li {
+      position: relative;
+  
+      &::after {
+        content: "";
+        height: 10px;
+        width: 10px;
+        background-image: url(../images/icon-arrow-dark.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 5px;
+      }
+    }
+
+    li.active::after {
+      transform: rotate(180deg);
+      margin-top: 0px;
+    }
+  
+  }
+
+  .links.active {
+    display: unset;
+  }
+
+  .nav__links_pages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+      color: v.$Very-dark-blue;
+      font-family: v.$font-w-1_300;
+      
+      &:hover {
+         @include u.hover(v.$Very-dark-black-blue);
+      }
+    }
+  }
+
+  .nav_submenu {
+    flex-direction: column;
+    gap: 15px;
+    background-color: v.$Grayish-blue;
+    margin-inline: 20px;
+    border-radius: 5px;
+    padding-block: 20px;
+    color: v.$Very-dark-grayish-blue;
+    display: none;
+
+  }
+
+  .nav_submenu.active {
+    @include u.flex;
+  }
+
+  .line {
+    margin-block: 10px;
+    margin-inline: auto;
+    inline-size: 90%;
+    block-size: 1px;
+    background-color: v.$Grayish-blue;
+  }
+
+  .nav__links_cta {
+    @include u.flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .cta__primary {
+      background: linear-gradient(to right, v.$Very-light-red-i-b, v.$Light-red-i-b);
+      padding: 15px 25px;
+      border-radius: 50px;
+      color: v.$White;
+
+
+      &:hover {
+        background: lighten($color: v.$Light-red-i-b, $amount: 10);
+      }
+    }
+
+    .cta__secondary {
+  
+      &:hover {
+        @include u.hover(v.$Very-dark-desaturated-blue-g);
+      }
+    }
+  }
+
+  .nav__close {
+    display: none;
+  }
+
+  .nav__close.active {
+    display: unset;
+  }
+
+  .nav__open.active {
+    display: none;
+  }
+}
+
+//Media Query - mixin in breakpoint.scss
+
+@include b.lg {
+ 
+
+  //   .nav__links_cta {
+  //     display: unset;
+  //   }
+
+    .nav_submenu,
+    .nav__close,
+    .nav__open {
+      display: none;
+    }
+ // }
+
+  .nav__header__wrapper {
+  
+    .links {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+      background-color: transparent;
+      position: unset;
+      margin-inline-start: 50px;
+      overflow-y: unset;
+      box-shadow: none;
+      display: flex;
+
+  
+      li {    
+        &::after {
+          background-image: url(../images/icon-arrow-light.svg);
+        }
+      }
+    
+    }
+  
+    .nav__links_pages {
+      flex-direction: row;
+      gap: 50px;
+      position: relative;
+  
+      a {
+        color: v.$White;
+        
+        &:hover {
+           @include u.hover(v.$White);
+        }
+      }
+    }
+  
+    .nav_submenu {
+      flex-direction: column;
+      gap: 15px;
+      background-color: v.$White;
+      margin-inline: 20px;
+      border-radius: 5px;
+      padding: 20px;
+      color: v.$Very-dark-grayish-blue;
+      display: none;
+      position: absolute;
+      top: 30px;
+      box-shadow: 2px 5px 26px rgba(0, 0, 0, 0.2);
+
+      a {
+        color: v.$Very-dark-grayish-blue;
+        
+        &:hover {
+          color: v.$Very-dark-black-blue;
+          @include u.hover(v.$Very-dark-black-blue);
+
+        }
+      }
+
+      &.a{
+        left: -70px;
+      }
+
+      &.b{
+        left: 80px;
+      }
+
+      &.c{
+        left: 200px;
+      }
+    }
+
+    .line {
+      display: none;
+    }
+  
+    .nav__links_cta {
+      flex-direction: row;
+      gap: 20px;
+  
+      .cta__primary {
+        background: v.$White;
+        padding: 10px 15px;
+        color: v.$Light-red;
+        border-radius: 50px;
+        display: inline-block;
+        border: 2px solid v.$White;
+  
+  
+        &:hover {
+          color: v.$White;
+          background-color: v.$Very-light-red-i-b;
+          border: 2px solid v.$Very-light-red-i-b;
+        }
+      }
+  
+      .cta__secondary {
+        color: v.$White;
+        &:hover {
+          @include u.hover(v.$White);
+        }
+      }
+    }
+  
+    .nav__close {
+      display: none;
+    }
+  
+    .nav__close.active {
+      display: unset;
+    }
+  
+    .nav__open.active {
+      display: none;
+    }
+  }
+}
